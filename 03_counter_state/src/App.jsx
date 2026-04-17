@@ -1,17 +1,25 @@
+import {useState} from "react"
 import './App.css'
 
+ function App() {
+  const [count , setCount ] = useState(0);
 
-function App() {
+  //const incrementHeandler = (numVal) => {
+    // setCount(numVal + 1); short hand notation
+  //     setCount((prev) =>  prev + numVal + 1 ); 
+  //     setCount((prev) =>  prev + 1 ); 
+  //     setCount((prev) =>  prev + 1 ); 
+  // };
   return (
     <div id="center">
-      <h1>Counter</h1> 
-      <div className='card'>count is 23</div>
+      <h1>Counter is {count}</h1> 
+      <div className='card'>count is {count}</div>
 
       <div>
-        <button onClick={() => {}} style={{ margin: "0 5px" }}>
+        <button onClick={() => setCount(count + 1)} style={{ margin: "0 5px" }}>
           Increase
         </button>
-        <button onClick={() => {}} style={{ margin: "0 5px" }}>
+        <button onClick={() => setCount((count) => Math.max(count-1, 0)) } style={{ margin: "0 5px" }}>
           Decrease
         </button> 
          <button onClick={() => {}} style={{ margin: "0 5px" }}>
@@ -21,7 +29,25 @@ function App() {
       <div style={{
         margin : "0px 20px"
       }}>
-        <input type="text" />
+        <input style={{
+          width : "100px",
+          border : "1px solid white",
+          margin : "0 5px",
+          padding : "0.6em 1.2em"
+
+        }}
+        value = ""
+        onChange={() => {}}
+        type="text" />
+     <button 
+      style={{
+       margin: "0 5px"
+     }}
+       onClick={()=>{}}
+    >set to 88
+     </button>
+                  
+
       </div>
     </div>
   )
