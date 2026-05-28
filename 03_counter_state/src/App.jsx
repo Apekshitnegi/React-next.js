@@ -3,13 +3,14 @@ import './App.css'
 
  function App() {
   const [count , setCount ] = useState(0);
+  const [countToSet , setCountToSet] = useState(0);
 
   //const incrementHeandler = (numVal) => {
     // setCount(numVal + 1); short hand notation
   //     setCount((prev) =>  prev + numVal + 1 ); 
   //     setCount((prev) =>  prev + 1 ); 
   //     setCount((prev) =>  prev + 1 ); 
-  // };
+  // };+
   return (
     <div id="center">
       <h1>Counter is {count}</h1> 
@@ -22,7 +23,7 @@ import './App.css'
         <button onClick={() => setCount((count) => Math.max(count-1, 0)) } style={{ margin: "0 5px" }}>
           Decrease
         </button> 
-         <button onClick={() => {}} style={{ margin: "0 5px" }}>
+         <button onClick={() => setCount((count) => 0) } style={{ margin: "0 5px" }}>
           Reset
         </button>
       </div>
@@ -36,15 +37,18 @@ import './App.css'
           padding : "0.6em 1.2em"
 
         }}
-        value = ""
-        onChange={() => {}}
+        value = {countToSet}
+        onChange={(e) => setCountToSet(Number(e.target.value))}
         type="text" />
      <button 
       style={{
        margin: "0 5px"
      }}
-       onClick={()=>{}}
-    >set to 88
+       onClick={()=>{
+        setCount(Number(countToSet));
+        setCountToSet(0);
+       }}
+    >set to {countToSet}
      </button>
                   
 
