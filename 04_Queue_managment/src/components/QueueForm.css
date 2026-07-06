@@ -1,0 +1,53 @@
+.queue-form{
+    background:#27272a;
+    padding:32px;
+    border-radius:16px;
+    width:100%;
+}
+
+.queue-form h2{
+    color:#6366f1;
+    font-size:38px;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:22px;
+}
+
+.queue-form input,
+.queue-form select{
+    width:100%;
+    padding:18px;
+    background:#18181b;
+    border:1px solid #3f3f46;
+    color:white;
+    font-size:18px;
+    border-radius:10px;
+}
+
+.queue-form input::placeholder{
+    color:#8a8a8a;
+}
+
+.queue-form input:focus,
+.queue-form select:focus{
+    outline:none;
+    border-color:#6366f1;
+}
+
+.queue-form button{
+    width:100%;
+    border:none;
+    background:#6366f1;
+    color:white;
+    padding:18px;
+    border-radius:10px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.queue-form button:hover{
+    background:#4f46e5;
+}
