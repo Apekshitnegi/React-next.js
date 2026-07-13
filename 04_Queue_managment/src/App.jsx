@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import QueueForm from './components/QueueForm'
+import QueueDisplay from './components/QueueDisplay'
 function App() {
   const [Queue , setQueue] = useState([])
  
@@ -30,9 +31,7 @@ function App() {
 
    <main>
    <QueueForm onAdd={addToQueueData} />
-    <div className="queue-display">
-    <h2>Queue Display</h2>
-</div>
+    <QueueDisplay/>
    </main>
    </div>
   )
