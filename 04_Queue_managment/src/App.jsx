@@ -31,7 +31,11 @@ function App() {
 
    <main>
    <QueueForm onAdd={addToQueueData} />
-    <QueueDisplay/>
+    <QueueDisplay
+    Queue = {Queue}
+    onUpdateStatus = {updateStatus}
+    onRemoveStatus = {removeFromQueue}
+    />
    </main>
    </div>
   )
