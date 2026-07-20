@@ -1,44 +1,54 @@
-import { useState } from 'react'
-import './App.css'
-import QueueForm from './components/QueueForm'
-import QueueDisplay from './components/QueueDisplay'
+import { useState } from "react";
+import "./App.css";
+import QueueForm from "./components/QueueForm";
+import QueueDisplay from "./components/QueueDisplay";
+
 function App() {
-  const [Queue , setQueue] = useState([])
- 
-  const addToQueueData  = (customer) => {
-    setQueue([...Queue, {...Customer , id : Date.now , status: "Waiting"}])
-  }
+  const [queue, setQueue] = useState([]);
 
-  const updateStatus  = (id , newStatus) => {
-       setQueue(Queue.map(Customer =>{
-        Customer.id ? {...Customer , status : newStatus}:Customer
-       }))
-  }
+  const addToQueueData = (customer) => {
+    setQueue([
+      ...queue,
+      {
+        ...customer,
+        id: Date.now(),
+        status: "waiting",
+      },
+    ]);
+  };
 
-  const removeFromQueue  = (id) => {
-    setQueue(Queue.filter(Customer => Customer.id !== id) 
-    
-    )
-  }
+  const updateStatus = (id, newStatus) => {
+    setQueue(
+      queue.map((customer) =>
+        customer.id === id
+          ? { ...customer, status: newStatus }
+          : customer
+      )
+    );
+  };
+
+  const removeFromQueue = (id) => {
+    setQueue(queue.filter((customer) => customer.id !== id));
+  };
+
   return (
-    <div className= "app">
-   <header>
-   
-      <h1> Queue Managment Application </h1>
-      <p>manage your customers efficiently</p>
+    <div className="app">
+      <header>
+        <h1>Queue Management Application</h1>
+        <p>Manage your customers efficiently</p>
+      </header>
 
-   </header>
+      <main>
+        <QueueForm onAdd={addToQueueData} />
 
-   <main>
-   <QueueForm onAdd={addToQueueData} />
-    <QueueDisplay
-    Queue = {Queue}
-    onUpdateStatus = {updateStatus}
-    onRemoveStatus = {removeFromQueue}
-    />
-   </main>
-   </div>
-  )
+        <QueueDisplay
+          queue={queue}
+          onUpdateStatus={updateStatus}
+          onRemoveStatus={removeFromQueue}
+        />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
